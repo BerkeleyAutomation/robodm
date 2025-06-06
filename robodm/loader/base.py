@@ -13,5 +13,5 @@ class BaseLoader:
     def __len__(self):
         raise NotImplementedError
 
-    def __iter___(self):
+    def __iter__(self):
         raise NotImplementedError
