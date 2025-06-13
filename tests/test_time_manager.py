@@ -16,8 +16,8 @@ from datetime import datetime, timedelta, timezone
 import numpy as np
 import pytest
 
-from robodm import create_trajectory
-from robodm.trajectory import TimeManager, Trajectory
+from robodm import Trajectory
+from robodm.trajectory import TimeManager
 
 
 class TestTimeManager:
@@ -193,7 +193,7 @@ class TestTrajectoryTimeIntegration:
             base_dt = datetime(2023, 1, 1, 12, 0, 0, tzinfo=timezone.utc)
 
             # Create trajectory with specific time settings
-            trajectory = create_trajectory(
+            trajectory = Trajectory(
                 path,
                 mode="w",
                 base_datetime=base_dt,
@@ -230,10 +230,10 @@ class TestTrajectoryTimeIntegration:
             path = os.path.join(temp_dir, "test_trajectory.mkv")
             base_dt = datetime(2023, 1, 1, 12, 0, 0, tzinfo=timezone.utc)
 
-            trajectory = create_trajectory(path,
-                                           mode="w",
-                                           base_datetime=base_dt,
-                                           time_unit="ms")
+            trajectory = Trajectory(path,
+                                   mode="w",
+                                   base_datetime=base_dt,
+                                   time_unit="ms")
 
             # Add data at specific datetime points
             dt1 = base_dt + timedelta(seconds=1)
@@ -256,7 +256,7 @@ class TestTrajectoryTimeIntegration:
         with tempfile.TemporaryDirectory() as temp_dir:
             path = os.path.join(temp_dir, "test_trajectory.mkv")
 
-            trajectory = create_trajectory(path, mode="w", time_unit="ms")
+            trajectory = Trajectory(path, mode="w", time_unit="ms")
 
             # Add data without explicit timestamps
             trajectory.add("feature1", "value1")
@@ -277,7 +277,7 @@ class TestTrajectoryTimeIntegration:
         with tempfile.TemporaryDirectory() as temp_dir:
             path = os.path.join(temp_dir, "test_trajectory.mkv")
 
-            trajectory = create_trajectory(path, mode="w", time_unit="ms")
+            trajectory = Trajectory(path, mode="w", time_unit="ms")
 
             # Add data with different time units
             trajectory.add("sensor1", 1.0, timestamp=1,

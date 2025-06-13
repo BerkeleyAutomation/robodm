@@ -32,6 +32,7 @@ SUPPORTED_DTYPES = [
     "string",
     "str",
     "large_string",
+    "bytes",
 ]
 
 
@@ -72,6 +73,8 @@ class FeatureType:
         if dtype == "int":  # fix inferred type
             dtype = "int32"
         if dtype == "object":
+            dtype = "string"
+        if dtype == "bytes":
             dtype = "string"
         if dtype not in SUPPORTED_DTYPES:
             raise ValueError(f"Unsupported dtype: {dtype}")
@@ -123,6 +126,8 @@ class FeatureType:
             feature_type._set(dtype, data_shape)
         else:
             dtype = type(data).__name__
+            if dtype == 'object':
+                dtype = 'string'
             empty_shape: Tuple[int, ...] = ()
             try:
                 feature_type._set(dtype, empty_shape)

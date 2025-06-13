@@ -14,7 +14,7 @@ except ImportError:
 
 from robodm.loader.vla import (LoadingMode, RayVLALoader, SliceConfig,
                                create_slice_loader, create_trajectory_loader)
-from robodm.utils import data_to_tf_schema
+from robodm.utils.flatten import data_to_tf_schema
 
 
 @dataclass

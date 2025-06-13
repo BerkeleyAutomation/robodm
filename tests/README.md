@@ -140,10 +140,7 @@ def test_my_feature(temp_dir, mock_filesystem):
     data = {"feature": [1, 2, 3]}
     
     # Use mock filesystem for fast testing
-    factory = TrajectoryFactory(filesystem=mock_filesystem)
-    
-    # Test your feature
-    trajectory = factory.create_trajectory("test.vla", mode="w")
+    trajectory = Trajectory("test.vla", mode="w", filesystem=mock_filesystem)
     # ... test logic
     
     assert expected_result == actual_result

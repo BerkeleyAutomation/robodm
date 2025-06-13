@@ -9,7 +9,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader, IterableDataset
 
-from robodm.utils import _flatten, recursively_read_hdf5_group
+from robodm.utils.flatten import _flatten, recursively_read_hdf5_group
 
 from . import BaseLoader
 

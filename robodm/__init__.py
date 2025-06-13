@@ -13,7 +13,6 @@ from robodm.feature import FeatureType
 from robodm.trajectory import Trajectory
 from robodm.trajectory_base import (FileSystemInterface, TimeProvider,
                                     TrajectoryInterface)
-from robodm.trajectory_factory import TrajectoryFactory, create_trajectory
 
 __all__ = [
     "FeatureType",
@@ -21,8 +20,6 @@ __all__ = [
     "TrajectoryInterface",
     "FileSystemInterface",
     "TimeProvider",
-    "TrajectoryFactory",
-    "create_trajectory",
 ]
 
 # Version of the robodm package
