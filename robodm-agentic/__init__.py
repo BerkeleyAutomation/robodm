@@ -20,3 +20,18 @@ import logging
 _FORMAT = "%(levelname).1s %(asctime)s %(filename)s:%(lineno)d] %(message)s"
 logging.basicConfig(format=_FORMAT)
 logging.root.setLevel(logging.INFO)
+
+# Core agentic components
+from .core.agent import RoboDMAgent
+from .core.robodm_interface import RoboDMInterface
+from .mcp.server import RoboDMMCPServer
+from .clients.llm_client import LLMClient
+from .clients.vlm_client import VLMClient
+
+__all__ = [
+    "RoboDMAgent",
+    "RoboDMInterface", 
+    "RoboDMMCPServer",
+    "LLMClient",
+    "VLMClient",
+]

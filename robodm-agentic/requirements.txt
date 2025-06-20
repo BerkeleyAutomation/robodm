@@ -1,0 +1,13 @@
+# Core requirements
+numpy>=1.21.0
+Pillow>=8.0.0
+
+# LLM/VLM clients
+openai>=1.0.0
+ollama>=0.2.0
+
+# MCP support
+mcp>=0.1.0
+
+# Optional dependencies for enhanced functionality
+asyncio-extras>=1.3.0
